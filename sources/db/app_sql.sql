@@ -54,3 +54,15 @@ CREATE TABLE Notificacion (
     FOREIGN KEY (id_paciente) REFERENCES Paciente(id),
     FOREIGN KEY (id_seguimiento) REFERENCES Seguimiento(id)
 );
+
+CREATE TABLE Cita (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_paciente INT NOT NULL,
+    id_enfermero INT NOT NULL,
+    fecha DATE NOT NULL,
+    hora TIME NOT NULL,
+    motivo VARCHAR(255),
+    estado ENUM('Pendiente','Confirmada','Cancelada','Completada') DEFAULT 'Pendiente',
+    FOREIGN KEY (id_paciente) REFERENCES Paciente(id),
+    FOREIGN KEY (id_enfermero) REFERENCES Enfermero(id)
+);
