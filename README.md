@@ -31,9 +31,9 @@ La aplicación busca mejorar la gestión y la experiencia en entornos de salud, 
 
 | Nombre    | Rol                           | Tareas principales |
 |----------|-------------------------------|------------------|
-| Jose     | Backend & Base de Datos       | Diseño y desarrollo de la lógica, gestión de BD y APIs |
+| Jose     | Backend & Base de Datos       | Diseño y lógica, gestión de BD |
 | Rodrigo  | Diseño UI/UX                  | Creación de interfaces, experiencia de usuario y diseño visual |
-| Ruben    | Planificación & Jerarquía     | Organización de tareas, planificación del proyecto y coordinación del equipo |
+| Ruben    | Planificación & Jerarquía     | Organización de tareas, creación de interfaces, planificación del proyecto |
 
 ---
 
