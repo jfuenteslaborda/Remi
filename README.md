@@ -36,14 +36,7 @@ La aplicación busca mejorar la gestión y la experiencia en entornos de salud, 
 ## 🚀 Estado del Proyecto
 
 El progreso y las tareas del proyecto se gestionan en Trello:  
-📌 [Ver estado del proyecto en Trello](https://trello.com/b/ejemplo)
-
----
-
-## 📷 Capturas de Pantalla (Ejemplo)
-
-![Pantalla Principal](https://via.placeholder.com/300x600.png?text=Pantalla+Principal)
-![Pantalla Secundaria](https://via.placeholder.com/300x600.png?text=Pantalla+Secundaria)
+📌 [Ver estado del proyecto en Trello]([https://trello.com/b/ejemplo](https://trello.com/b/YkPV6LM0/remi))
 
 ---
 
