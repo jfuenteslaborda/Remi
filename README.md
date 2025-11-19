@@ -1,7 +1,5 @@
 # ![En Desarrollo](https://img.shields.io/badge/Estado-En%20Desarrollo-yellow) Remi  
 
-![Remi Banner](https://images.unsplash.com/photo-1606761568499-6d2451b23c8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1200)
-
 <p align="center">
   <img src="https://img.shields.io/badge/Plataforma-Android-green?style=for-the-badge&logo=android" />
   <img src="https://img.shields.io/badge/Lenguaje-Kotlin-blue?style=for-the-badge&logo=kotlin" />
@@ -10,7 +8,6 @@
   <img src="https://img.shields.io/badge/Gestión-Trello-blue?style=for-the-badge&logo=trello" />
 </p>
 
-![Remi - App de Salud](https://images.unsplash.com/photo-1580281658625-d60e242918a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080)
 
 
 ## 📌 Descripción del Proyecto
