@@ -34,7 +34,7 @@ La aplicación busca mejorar la gestión y la experiencia en entornos de salud, 
 ## 🚀 Estado del Proyecto
 
 El progreso y las tareas del proyecto se gestionan en Trello:  
-📌 [Accede al tablero de Trello del proyecto]([https://trello.com/b/YkPV6LM0/remi])  
+📌 [Accede al tablero de Trello del proyecto](https://trello.com/b/YkPV6LM0/remi)  
 
 ---
 
