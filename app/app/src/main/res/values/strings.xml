@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">app</string>
+    <string name="app_name">Remi</string>
+
+    --Menu
+    <string name="menuNotificaciones">Notificaciones</string>
+    <string name="menuPacientes">Pacientes</string>
+    <string name="menuHome">Home</string>
+    <string name="menuCalendario">Calendario</string>
 </resources>
