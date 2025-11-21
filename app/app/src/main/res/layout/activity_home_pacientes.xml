@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,17 +20,17 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="15dp"
-            android:src="@drawable/remi_logo"/>
+            android:layout_marginStart="15dp"
+            android:src="@drawable/remi_logo_bien"/>
 
         <TextView
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
-            android:text="Remi"
-            android:gravity="center"
             android:fontFamily="serif"
-            android:textSize="32sp"/>
+            android:gravity="center"
+            android:text="Remi"
+            android:textSize="32sp" />
 
         <ImageView
             android:id="@+id/imageProfile"
@@ -41,10 +42,17 @@
     </LinearLayout>
 
     <TextView
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:text="Pastillas a tomar hoy"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
         android:fontFamily="serif"
-        android:textSize="15sp"/>
+        android:text="Pastillas a tomar hoy"
+        android:textSize="15sp"
+        android:layout_gravity="left"
+        android:layout_marginTop="9dp"
+        android:textColor="#737373"
+        android:layout_marginStart="27dp"
+         />
+
+    
 
 </LinearLayout>
