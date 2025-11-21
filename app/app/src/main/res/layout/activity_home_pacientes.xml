@@ -53,6 +53,36 @@
         android:layout_marginStart="27dp"
          />
 
-    
+    <LinearLayout
+        android:layout_width="365dp"
+        android:layout_height="80dp"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="10dp"
+
+        android:background="@drawable/rounded_shadow"
+        android:padding="16dp"
+
+        android:elevation="20dp"
+
+        android:translationY="10dp"
+
+        android:outlineSpotShadowColor="#12000000"
+        android:outlineAmbientShadowColor="#12000000"
+
+        >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:text="Ibuprofeno"
+            android:textSize="17sp"
+            android:fontFamily="serif"
+            />
+
+
+    </LinearLayout>
 
 </LinearLayout>

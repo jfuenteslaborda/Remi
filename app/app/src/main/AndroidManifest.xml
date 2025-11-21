@@ -12,42 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App">
 
+        <!-- Actividad principal -->
         <activity
-<<<<<<< HEAD
             android:name=".activity_home_pacientes"
-=======
-            android:name=".barraNavegacion"
-            android:exported="false" />
-        <activity
-            android:name=".PacientesMedico"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
->>>>>>> 7ed64bcbede29dcafab4d9ba26cff0257be07eaa
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
 
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="false" />
 
-=======
         <activity
             android:name=".Login"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="true" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
->>>>>>> 7ed64bcbede29dcafab4d9ba26cff0257be07eaa
     </application>
 
 </manifest>
