@@ -16,5 +16,9 @@ class Login : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        //Conexión a la base de datos
+        var conn = ConecctionDB();
+        var connect = conn.getConnection();
     }
 }
