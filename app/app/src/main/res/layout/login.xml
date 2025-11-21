@@ -138,7 +138,7 @@
             android:fontFamily="serif"
             android:text="Solicitar cuenta"
             android:backgroundTint="@android:color/white"
-            app:strokeColor="#43A047"
+            app:strokeColor="@color/verde"
             app:strokeWidth="2dp" />
 
     </LinearLayout>
