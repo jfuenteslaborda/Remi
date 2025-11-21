@@ -418,9 +418,9 @@
             android:gravity="center_vertical">
 
             <ImageView
-                android:layout_width="50dp"
+                android:layout_width="60dp"
                 android:layout_height="30dp"
-                android:src="@drawable/calendar_home_pacientes"
+                android:src="@drawable/check_green_home_pacientes"
                 android:layout_marginEnd="1dp"/>
 
             <LinearLayout
@@ -456,33 +456,114 @@
                         android:textSize="12sp"
                         android:textColor="#474747" />
 
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_shadow"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:src="@drawable/check_green_home_pacientes"
+                android:layout_marginEnd="1dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ibuprofeno"
+                    android:textSize="17sp"
+                    android:fontFamily="serif"
+                    android:textColor="#000000" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="3dp">
+
                     <ImageView
                         android:layout_width="22dp"
                         android:layout_height="15dp"
-                        android:src="@drawable/calendar_home_pacientes"
-                        android:layout_marginEnd="1dp"
-                        android:layout_marginStart="15sp"/>
+                        android:src="@drawable/reloj_black_home_pacientes"
+                        android:layout_marginEnd="1dp"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nov. 22"
+                        android:text="08:00"
                         android:textSize="12sp"
                         android:textColor="#474747" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_shadow"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:src="@drawable/check_green_home_pacientes"
+                android:layout_marginEnd="1dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ibuprofeno"
+                    android:textSize="17sp"
+                    android:fontFamily="serif"
+                    android:textColor="#000000" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="3dp">
 
                     <ImageView
                         android:layout_width="22dp"
                         android:layout_height="15dp"
-                        android:src="@drawable/profile_home_pacientes"
-                        android:layout_marginEnd="1dp"
-                        android:layout_marginStart="15sp"/>
+                        android:src="@drawable/reloj_black_home_pacientes"
+                        android:layout_marginEnd="1dp"/>
 
                     <TextView
-                        android:layout_width="77dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Dra. López"
-                        android:textColor="#474747"
-                        android:textSize="12sp" />
+                        android:text="08:00"
+                        android:textSize="12sp"
+                        android:textColor="#474747" />
+
 
                 </LinearLayout>
             </LinearLayout>
