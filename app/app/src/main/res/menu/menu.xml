@@ -2,11 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menuNotificaciones"
-        android:title="@string/menuNotificaciones">
+        android:title="@string/menuNotificaciones"
+        android:src="@drawable/bell_15783118">
     </item>
     <item
         android:id="@+id/menuPacientes"
-        android:title="@string/menuPacientes">
+        android:title="@string/menuPacientes"
+        android:src="@drawable/check_14034688">
     </item>
     <item
         android:id="@+id/menuHome"
@@ -15,6 +17,7 @@
     </item>
     <item
         android:id="@+id/menuCalendario"
-        android:title="@string/menuCalendario">
+        android:title="@string/menuCalendario"
+        android:src="@drawable/medical_11769870">
     </item>
 </menu>
