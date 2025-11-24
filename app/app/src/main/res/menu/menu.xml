@@ -4,21 +4,21 @@
     <item
         android:id="@+id/menuNotificaciones"
         android:title="@string/menuNotificaciones"
-        android:icon="@drawable/bell_15783118" />
+        android:icon="@drawable/imgNotificaciones" />
 
     <item
         android:id="@+id/menuPacientes"
         android:title="@string/menuPacientes"
-        android:icon="@drawable/check_14034688" />
+        android:icon="@drawable/imgPacientes" />
 
     <item
         android:id="@+id/menuHome"
         android:title="@string/menuHome"
-        android:icon="@drawable/home_8215572" />
+        android:icon="@drawable/imgHome" />
 
     <item
         android:id="@+id/menuCalendario"
         android:title="@string/menuCalendario"
-        android:icon="@drawable/medical_11769870" />
+        android:icon="@drawable/imgCalendario" />
 
 </menu>
