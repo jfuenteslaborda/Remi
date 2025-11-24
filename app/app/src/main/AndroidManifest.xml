@@ -12,19 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App">
         <activity
-            android:name=".barraNavegacion"
-            android:exported="false" />
-        <activity
-            android:name=".PacientesMedico"
-            android:exported="false" />
+            android:name=".activity_home_pacientes"
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Login"
