@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
         android:id="@+id/menuNotificaciones"
-        android:title="@string/menuNotificaciones">
-    </item>
+        android:title="@string/menuNotificaciones"
+        android:icon="@drawable/imgNotificaciones" />
+
     <item
         android:id="@+id/menuPacientes"
-        android:title="@string/menuPacientes">
-    </item>
+        android:title="@string/menuPacientes"
+        android:icon="@drawable/imgPacientes" />
+
     <item
         android:id="@+id/menuHome"
         android:title="@string/menuHome"
-        android:src="@drawable/home_8215572" >
-    </item>
+        android:icon="@drawable/imgHome" />
+
     <item
         android:id="@+id/menuCalendario"
-        android:title="@string/menuCalendario">
-    </item>
+        android:title="@string/menuCalendario"
+        android:icon="@drawable/imgCalendario" />
+
 </menu>
