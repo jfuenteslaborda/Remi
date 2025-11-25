@@ -8,4 +8,5 @@
     <string name="menuPacientes">Pacientes</string>
     <string name="menuHome">Home</string>
     <string name="menuCalendario">Calendario</string>
+    <string name="menuTratamientos">menuTratamientos</string>
 </resources>

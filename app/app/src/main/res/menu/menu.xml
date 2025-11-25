@@ -8,9 +8,9 @@
         android:icon="@drawable/img_notificaciones_2" />
 
     <item
-        android:id="@+id/menuPacientes"
-        android:title="@string/menuPacientes"
-        android:icon="@drawable/img_pacientes" />
+        android:id="@+id/menuTratamientos"
+        android:title="Tratamientos"
+        android:icon="@drawable/img_pastilla" />
 
     <item
         android:id="@+id/menuHome"
