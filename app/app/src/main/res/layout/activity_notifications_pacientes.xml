@@ -69,8 +69,8 @@
                 android:layout_height="wrap_content"
                 android:text="Todos"
                 android:textColor="@android:color/white"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 android:background="@drawable/rounded_shadow_blue_purple"
@@ -81,8 +81,8 @@
                 android:layout_height="wrap_content"
                 android:text="Medicación"
                 android:textColor="#000000"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 android:background="@drawable/rounded_button_gray"
@@ -93,8 +93,8 @@
                 android:layout_height="wrap_content"
                 android:text="Citas"
                 android:textColor="#000000"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 android:background="@drawable/rounded_button_gray"
@@ -105,8 +105,8 @@
                 android:layout_height="wrap_content"
                 android:text="No leído"
                 android:textColor="#000000"
-                android:paddingStart="20dp"
-                android:paddingEnd="20dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
                 android:background="@drawable/rounded_button_gray"
@@ -116,104 +116,77 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="115dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_shadow"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="15dp">
 
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/alert_patients_image_notifications" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="115dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/rounded_shadow"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="15dp">
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="8dp"
-                    android:src="@drawable/pills_notifications_blue_pacientes" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:text="Ibuprofeno"
+                    android:textColor="#000000"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:text="En 2 horas"
+                    android:textColor="#474747"
+                    android:textSize="12sp" />
+
+                <!-- BOTONES HORIZONTALES COMO EN LA IMAGEN -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="serif"
-                        android:text="Ibuprofeno"
-                        android:textColor="#000000"
-                        android:textSize="17sp" />
+                        android:text="Medicación"
+                        android:textColor="#1E88E5"
+                        android:paddingStart="13dp"
+                        android:paddingEnd="13dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:background="@drawable/rounded_bluefontandbluebackground_pacientes"
+                        android:textSize="13sp"
+                        android:layout_marginEnd="10dp" />
 
-                    <LinearLayout
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="En 2 horas"
-                            android:textColor="#474747"
-                            android:textSize="12sp" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="50dp"
-                            android:orientation="horizontal"
-                            android:gravity="center"
-                            android:showDividers="middle"
-                            android:layout_marginTop="5dp"
-                            android:divider="@drawable/divider_12sp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Medicación"
-                                android:textColor="#1E88E5"
-                                android:paddingStart="20dp"
-                                android:paddingEnd="20dp"
-                                android:paddingTop="8dp"
-                                android:layout_marginTop="10dp"
-                                android:paddingBottom="8dp"
-                                android:background="@drawable/rounded_bluefontandbluebackground_pacientes"
-                                android:textSize="13sp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Medicación"
-                                android:textColor="#1E88E5"
-                                android:paddingStart="20dp"
-                                android:paddingEnd="20dp"
-                                android:paddingTop="8dp"
-                                android:layout_marginTop="10dp"
-                                android:paddingBottom="8dp"
-                                android:background="@drawable/rounded_bluefontandbluebackground_pacientes"
-                                android:textSize="13sp" />
-
-                        </LinearLayout>
-
-                    </LinearLayout>
+                        android:text="Importante"
+                        android:textColor="#FFFFFF"
+                        android:paddingStart="13dp"
+                        android:paddingEnd="13dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:background="@drawable/rounded_red_importantes_pacientes"
+                        android:textSize="13sp" />
                 </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/imageCheckmark"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/check_green_home_pacientes"
-                    android:contentDescription="Completado" />
-
             </LinearLayout>
-
         </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -232,83 +205,7 @@
                 android:padding="15dp">
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="8dp"
-                    android:src="@drawable/pills_notifications_blue_pacientes" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="serif"
-                        android:text="Ibuprofeno"
-                        android:textColor="#000000"
-                        android:textSize="17sp" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="En 2 horas"
-                            android:textColor="#474747"
-                            android:textSize="12sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Medicación"
-                            android:textColor="#1E88E5"
-                            android:paddingStart="20dp"
-                            android:paddingEnd="20dp"
-                            android:paddingTop="8dp"
-                            android:layout_marginTop="10dp"
-                            android:paddingBottom="8dp"
-                            android:background="@drawable/rounded_bluefontandbluebackground_pacientes"
-                            android:textSize="13sp" />
-
-                    </LinearLayout>
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="10dp"
-                    android:src="@drawable/check_green_home_pacientes"
-                    android:contentDescription="Completado" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="115dp"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/rounded_shadow"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:padding="15dp">
-
-                <ImageView
-                    android:layout_width="80dp"
+                    android:layout_width="60dp"
                     android:layout_height="30dp"
                     android:layout_marginEnd="8dp"
                     android:src="@drawable/pills_notifications_blue_pacientes" />
@@ -384,7 +281,7 @@
                 android:padding="15dp">
 
                 <ImageView
-                    android:layout_width="80dp"
+                    android:layout_width="60dp"
                     android:layout_height="30dp"
                     android:layout_marginEnd="8dp"
                     android:src="@drawable/pills_notifications_blue_pacientes" />
@@ -460,7 +357,83 @@
                 android:padding="15dp">
 
                 <ImageView
-                    android:layout_width="80dp"
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/pills_notifications_blue_pacientes" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:text="Ibuprofeno"
+                        android:textColor="#000000"
+                        android:textSize="17sp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="En 2 horas"
+                            android:textColor="#474747"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Medicación"
+                            android:textColor="#1E88E5"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp"
+                            android:paddingTop="8dp"
+                            android:layout_marginTop="10dp"
+                            android:paddingBottom="8dp"
+                            android:background="@drawable/rounded_bluefontandbluebackground_pacientes"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/check_green_home_pacientes"
+                    android:contentDescription="Completado" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="115dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/rounded_shadow"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <ImageView
+                    android:layout_width="60dp"
                     android:layout_height="30dp"
                     android:layout_marginEnd="8dp"
                     android:src="@drawable/pills_notifications_blue_pacientes" />
