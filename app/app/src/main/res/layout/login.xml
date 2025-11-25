@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:layout_gravity="center"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".Login">
+        tools:context=".Login.Login">
 
         <ImageView
             android:id="@+id/imageView"
