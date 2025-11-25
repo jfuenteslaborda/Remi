@@ -17,11 +17,6 @@
         <activity
             android:name=".activity_calendar_pacientes"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".home_medico"
@@ -48,6 +43,16 @@
             android:name=".Login"
             android:exported="true">
         </activity>-->
+        <activity
+            android:name=".PacientesMedicoActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
     </application>
 
 </manifest>
