@@ -1,290 +1,331 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:fillViewport="true">
+    android:orientation="vertical">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
-
-        <TextView
-            android:id="@+id/tituloRemi"
-            android:text="Remi"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:padding="16dp"
-            android:gravity="center_vertical"
-            android:background="@drawable/border_black"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
+            android:gravity="center_horizontal">
 
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/img_notificaciones"
-                android:layout_marginRight="20dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="8dp"
+                android:paddingBottom="16dp">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/remi_logo_bien" />
 
                 <TextView
-                    android:text="Notificaciones enviadas:"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="Remi"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/img_ajustes" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/border_negro"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/img_notificaciones"
+                    android:layout_marginRight="20dp" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="Notificaciones enviadas:"
+                        android:textColor="#000000"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txtEnviadas"
+                        android:text="50"
+                        android:textColor="#000000"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Tarjeta Notificaciones Aceptadas -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/border_verde"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/img_notificaciones_enviadas"
+                    android:layout_marginRight="20dp" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="Notificaciones aceptadas:"
+                        android:textColor="#2ECC71"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txtAceptadas"
+                        android:text="30"
+                        android:textColor="#2ECC71"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Tarjeta Notificaciones Pendientes -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/border_naranja"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/img_notificaciones_pendientes"
+                    android:layout_marginRight="20dp" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="Notificaciones pendientes:"
+                        android:textColor="#F39C12"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txtPendientes"
+                        android:text="10"
+                        android:textColor="#F39C12"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Tarjeta Notificaciones Rechazadas -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/border_rojo"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/img_notificaciones_rechazadas"
+                    android:layout_marginRight="20dp" />
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="Notificaciones rechazadas:"
+                        android:textColor="#E74C3C"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/txtRechazadas"
+                        android:text="10"
+                        android:textColor="#E74C3C"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:text="Notificaciones Pendientes"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_naranja"
+                android:padding="16dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:text="María Gutiérrez"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="Omeprazol 20mg"
                     android:textColor="#000000"
                     android:textSize="14sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
                 <TextView
-                    android:id="@+id/txtEnviadas"
-                    android:text="50"
+                    android:text="Estómago / Protector gástrico"
+                    android:textColor="#333333"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="Horario asignado"
+                    android:textStyle="bold"
                     android:textColor="#000000"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:gravity="center_vertical"
-            android:background="@drawable/border_green"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/img_notificaciones_enviadas"
-                android:layout_marginRight="20dp" />
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:text="Notificaciones aceptadas:"
-                    android:textColor="#2ECC71"
                     android:textSize="14sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
                 <TextView
-                    android:id="@+id/txtAceptadas"
-                    android:text="30"
-                    android:textColor="#2ECC71"
-                    android:textSize="30sp"
+                    android:text="14:00"
+                    android:padding="6dp"
+                    android:background="#F39C12"
                     android:textStyle="bold"
+                    android:textColor="#FFFFFF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
-        </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:gravity="center_vertical"
-            android:background="@drawable/border_orange"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/img_notificaciones_pendientes"
-                android:layout_marginRight="20dp" />
+            <!-- Notificaciones Rechazadas Detalle -->
+            <TextView
+                android:text="Notificaciones Rechazadas"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_rojo"
+                android:padding="16dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical">
 
                 <TextView
-                    android:text="Notificaciones pendientes:"
-                    android:textColor="#F39C12"
+                    android:text="Rodrigo Cactus"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:text="Omeprazol 20mg"
+                    android:textColor="#000000"
                     android:textSize="14sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
                 <TextView
-                    android:id="@+id/txtPendientes"
-                    android:text="10"
-                    android:textColor="#F39C12"
-                    android:textSize="30sp"
-                    android:textStyle="bold"
+                    android:text="Estómago / Protector gástrico"
+                    android:textColor="#333333"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="6dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-            </LinearLayout>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:gravity="center_vertical"
-            android:background="@drawable/border_red"
-            android:orientation="horizontal"
-            android:layout_marginBottom="16dp">
-
-            <ImageView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:src="@drawable/img_notificaciones_rechazadas"
-                android:layout_marginRight="20dp" />
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
 
                 <TextView
-                    android:text="Notificaciones rechazadas:"
-                    android:textColor="#E74C3C"
+                    android:text="Horario asignado"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
                     android:textSize="14sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
                 <TextView
-                    android:id="@+id/txtRechazadas"
-                    android:text="10"
-                    android:textColor="#E74C3C"
-                    android:textSize="30sp"
+                    android:text="14:00"
+                    android:padding="6dp"
+                    android:background="#E74C3C"
                     android:textStyle="bold"
+                    android:textColor="#FFFFFF"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
+
         </LinearLayout>
-
-        <TextView
-            android:text="Notificaciones Pendientes"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/border_orange"
-            android:padding="16dp"
-            android:layout_marginBottom="16dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:text="María Gutiérrez"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:text="Omeprazol 20mg"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:text="Estómago / Protector gástrico"
-                android:textColor="#333333"
-                android:textSize="13sp"
-                android:layout_marginBottom="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:text="Horario asignado"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:text="14:00"
-                android:padding="6dp"
-                android:background="#F39C12"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <TextView
-            android:text="Notificaciones Rechazadas"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/border_red"
-            android:padding="16dp"
-            android:layout_marginBottom="30dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:text="Rodrigo Cactus"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:textSize="16sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:text="Omeprazol 20mg"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:text="Estómago / Protector gástrico"
-                android:textColor="#333333"
-                android:textSize="13sp"
-                android:layout_marginBottom="6dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:text="Horario asignado"
-                android:textStyle="bold"
-                android:textColor="#000000"
-                android:textSize="14sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:text="14:00"
-                android:padding="6dp"
-                android:background="#E74C3C"
-                android:textStyle="bold"
-                android:textColor="#FFFFFF"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>
