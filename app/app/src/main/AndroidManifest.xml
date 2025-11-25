@@ -15,6 +15,15 @@
             android:name=".tratamientos_medico"
             android:exported="false" />
         <activity
+            android:name=".activity_calendar_pacientes"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".home_medico"
             android:exported="false" />
         <activity
@@ -24,26 +33,21 @@
             android:name=".activity_home_pacientes"
             android:exported="true" />
         <activity
-            android:name=".activity_notifications_pacientes"
-            android:name=".MainActivity"
-            android:exported="true" />
+            android:name=".activity_notifications_pacientes"/>
+            <!--android:name=".MainActivity"-->
+            <!--android:exported="true" />-->
         <activity
             android:name=".Login"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
         </activity>
-        <activity
+        <!--<activity
             android:name=".Login"
             android:exported="true">
-        </activity>
+        </activity>-->
     </application>
 
 </manifest>
