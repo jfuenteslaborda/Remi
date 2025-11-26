@@ -11,7 +11,6 @@ class NotificationsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // 🔑 Inflar el layout de Home
         return inflater.inflate(R.layout.activity_notifications_pacientes, container, false)
     }
 }

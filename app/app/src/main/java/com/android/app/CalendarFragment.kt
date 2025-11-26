@@ -12,7 +12,7 @@ class CalendarFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // 🔑 Inflar el layout de Home
-        return inflater.inflate(R.layout.activity_calendar_pacientes, container, false)
+        return inflater.inflate(R.layout.activity_paciente_pacientes, container, false)
     }
 }
 

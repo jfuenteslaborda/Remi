@@ -13,7 +13,7 @@ class activity_calendar_pacientes : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_calendar_pacientes)
+        setContentView(R.layout.activity_paciente_pacientes)
 
         val mainView = findViewById<View>(R.id.main)
 

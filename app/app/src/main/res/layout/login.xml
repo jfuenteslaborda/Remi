@@ -2,6 +2,7 @@
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
@@ -12,7 +13,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
-        xmlns:tools="http://schemas.android.com/tools"
         tools:context=".Login.Login">
 
         <ImageView
@@ -147,6 +147,12 @@
                 app:strokeColor="@color/verde"
                 app:strokeWidth="2dp" />
         </LinearLayout>
+
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.google.android.material.chip.ChipGroup>
 
         <TextView
             android:id="@+id/textView5"

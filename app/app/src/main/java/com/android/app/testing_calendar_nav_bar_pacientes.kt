@@ -15,6 +15,6 @@ class testing_calendar_nav_bar_pacientes : Fragment() {
     ): View? {
         // 🔑 NECESITAS REEMPLAZAR 'activity_calendar_pacientes' con el nombre CORRECTO
         // que Android Studio le da a tu archivo XML del calendario
-        return inflater.inflate(R.layout.activity_calendar_pacientes, container, false)
+        return inflater.inflate(R.layout.activity_paciente_pacientes, container, false)
     }
 }
