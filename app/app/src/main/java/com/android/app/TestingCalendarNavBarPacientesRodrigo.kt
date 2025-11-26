@@ -6,16 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-class CalendarFragment : Fragment() {
+class TestingCalendarNavBarPacientesRodrigo  : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // 🔑 Inflar el layout de Home
         return inflater.inflate(R.layout.activity_paciente_pacientes, container, false)
     }
 }
-
-
 
 

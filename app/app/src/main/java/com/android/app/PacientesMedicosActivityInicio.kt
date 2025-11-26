@@ -4,18 +4,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.android.app.R
 
-import com.android.app.testing_calendar_nav_bar_pacientes
-import com.android.app.HomeFragment
-import com.android.app.TreatmentsFragment
-import com.android.app.NotificationsFragment
 
-class PacientesMedicoActivity : AppCompatActivity() {
+class PacientesMedicosActivityInicio : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_pacientes_medico)
+        setContentView(R.layout.activity_tratamientos_medico)
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
@@ -35,7 +30,7 @@ class PacientesMedicoActivity : AppCompatActivity() {
 
                 R.id.menuHome -> HomeFragment()
                 R.id.menuTratamientos -> TreatmentsFragment()
-                R.id.menuCalendario -> testing_calendar_nav_bar_pacientes()
+                R.id.menuCalendario -> TestingCalendarNavBarPacientesRodrigo ()
                 R.id.menuNotificaciones -> NotificationsFragment()
 
                 else -> return@setOnItemSelectedListener false
@@ -46,3 +41,5 @@ class PacientesMedicoActivity : AppCompatActivity() {
         }
     }
 }
+
+
