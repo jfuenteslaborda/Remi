@@ -5,602 +5,531 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_home_pacientes">
+    tools:context=".activity_home_pacientes"> <LinearLayout
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal">
 
     <LinearLayout
-        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="horizontal"
+        android:gravity="center_vertical"> <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/remi_logo_bien"
+        android:contentDescription="Logo de Remi"/> <TextView
+        android:layout_width="0dp" android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="serif"
+        android:gravity="center"
+        android:text="Remi"
+        android:textSize="32sp" />
+
+        <ImageView
+            android:id="@+id/imageProfile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginEnd="15dp"
+            android:src="@drawable/profile"
+            android:contentDescription="Icono de perfil" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtCurrentDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="Jueves, 20 de Noviembre de 2025"
+        android:textSize="15sp"
+        android:layout_gravity="start" android:layout_marginTop="9dp"
+        android:textColor="#000000"
+        android:layout_marginStart="16dp" /> <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="Medicación Programada"
+        android:textSize="15sp"
+        android:layout_gravity="start"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="4dp"
+        android:textColor="#1E88E5"
+        android:layout_marginStart="16dp"
+        android:textStyle="bold"/> <androidx.cardview.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp" android:layout_marginVertical="6dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
-        android:gravity="center_horizontal">
+        android:orientation="horizontal"
+        android:paddingVertical="8dp"> <View
+        android:layout_width="10dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/blue_bar_calendar_pacientes"
+        android:layout_gravity="center_vertical"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:paddingEnd="16dp">
+
+            <TextView
+                android:id="@+id/txtMedicamentoProgramado1" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ibuprofeno 400mg"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:fontFamily="serif" />
+
+            <TextView
+                android:id="@+id/txtHoraProgramada1" android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="08:00"
+                android:textSize="14sp"
+                android:textColor="#777777"
+                android:layout_marginTop="4dp"
+                android:fontFamily="serif" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginVertical="6dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_horizontal">
+            android:paddingVertical="8dp">
 
-            <ImageView
-                android:id="@+id/imageLogo"
-                android:layout_width="40dp"
+            <View
+                android:layout_width="10dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginStart="15dp"
-                android:src="@drawable/remi_logo_bien"/>
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/blue_bar_calendar_pacientes"
+                android:layout_gravity="center_vertical"/>
 
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="30dp"
-                android:fontFamily="serif"
-                android:gravity="center"
-                android:text="Remi"
-                android:textSize="32sp" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:paddingEnd="16dp">
 
-            <ImageView
-                android:id="@+id/imageProfile"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="40dp"
-                android:src="@drawable/profile" />
+                <TextView
+                    android:id="@+id/txtMedicamentoProgramado2" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Paracetamol 500mg" android:textSize="16sp"
+                    android:textColor="#000000"
+                    android:fontFamily="serif" />
 
+                <TextView
+                    android:id="@+id/txtHoraProgramada2" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12:00" android:textSize="14sp"
+                    android:textColor="#777777"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="serif" />
+            </LinearLayout>
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="25dp"
+            android:layout_height="wrap_content"
             android:fontFamily="serif"
-            android:text="Jueves, 20 de Noviembre de 2025"
+            android:text="Citas médicas"
             android:textSize="15sp"
-            android:layout_gravity="left"
-            android:layout_marginTop="9dp"
-            android:textColor="#000000"
-            android:layout_marginStart="27dp" />
+            android:layout_gravity="start"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"
+            android:textColor="#5E72E4"
+            android:layout_marginStart="16dp"
+            android:textStyle="bold"/>
 
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="6dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="serif"
-                android:text="Medicación Programada"
-                android:textSize="15sp"
-                android:layout_gravity="left"
-                android:layout_marginTop="9dp"
-                android:textColor="#1E88E5"
-                android:layout_marginStart="27dp"
-                android:textFontWeight="600"/>
-
-            <androidx.cardview.widget.CardView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:padding="12dp">
+                android:orientation="horizontal"
+                android:paddingVertical="8dp">
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/purple_bar_calendar_patients"
+                    android:layout_gravity="center_vertical"/>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp">
 
-                    <View
-                        android:layout_marginLeft="8dp"
-                        android:layout_width="10dp"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_gravity="center_vertical"
-                        android:alpha="1.0"/>
+                    <TextView
+                        android:id="@+id/txtCitaMedicaTitulo1" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cardiología" android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:fontFamily="serif" />
 
+                    <TextView
+                        android:id="@+id/txtCitaMedicaHora1" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10:30" android:textSize="14sp"
+                        android:textColor="#777777"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="serif" />
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="55dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/txtMedicamento"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ibuprofeno 400mg"
-                            android:textSize="16sp"
-                            android:textColor="#000000"
-                            android:fontFamily="serif" />
-
-                        <TextView
-                            android:id="@+id/secondCardProgrammedTreatments"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="08:00"
-                            android:textSize="14sp"
-                            android:textColor="#777777"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="serif" />
-                    </LinearLayout>
-
+                    <TextView
+                        android:id="@+id/txtCitaMedicaDetalle1" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Revisión general"
+                        android:textSize="14sp"
+                        android:textColor="#777777"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="serif" />
                 </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:padding="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <View
-                        android:layout_marginLeft="8dp"
-                        android:layout_width="10dp"
-                        android:layout_marginStart="10dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_gravity="center_vertical"
-                        android:alpha="1.0"/>
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="55dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/txtMedicamento4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ibuprofeno 400mg"
-                            android:textSize="16sp"
-                            android:textColor="#000000"
-                            android:fontFamily="serif" />
-
-                        <TextView
-                            android:id="@+id/txtHora2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="08:00"
-                            android:textSize="14sp"
-                            android:textColor="#777777"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="serif" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-        </LinearLayout>
-
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="6dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="serif"
-                android:text="Citas médicas"
-                android:textSize="15sp"
-                android:layout_gravity="left"
-                android:layout_marginTop="9dp"
-                android:textColor="#5E72E4"
-                android:layout_marginStart="27dp"
-                android:textFontWeight="600"/>
-
-            <androidx.cardview.widget.CardView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:padding="12dp">
+                android:orientation="horizontal"
+                android:paddingVertical="8dp">
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/purple_bar_calendar_patients"
+                    android:layout_gravity="center_vertical"/>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp">
 
-                    <View
-                        android:layout_marginLeft="8dp"
-                        android:layout_width="10dp"
-                        android:layout_height="60dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"
-                        android:alpha="1.0"/>
+                    <TextView
+                        android:id="@+id/txtCitaMedicaTitulo2" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dermatología" android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:fontFamily="serif" />
 
+                    <TextView
+                        android:id="@+id/txtCitaMedicaHora2" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="15:00" android:textSize="14sp"
+                        android:textColor="#777777"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="serif" />
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/txtMedicamento3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ibuprofeno 400mg"
-                            android:textSize="16sp"
-                            android:textColor="#000000"
-                            android:fontFamily="serif" />
-
-                        <TextView
-                            android:id="@+id/txtCitasMedicas10"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="08:00"
-                            android:textSize="14sp"
-                            android:textColor="#777777"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="serif" />
-
-                        <TextView
-                            android:id="@+id/txtCitasMedicas1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Revisión general"
-                            android:textSize="14sp"
-                            android:textColor="#777777"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="serif" />
-
-                    </LinearLayout>
-
+                    <TextView
+                        android:id="@+id/txtCitaMedicaDetalle2" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Consulta de seguimiento" android:textSize="14sp"
+                        android:textColor="#777777"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="serif" />
                 </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:padding="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <View
-                        android:layout_marginLeft="8dp"
-                        android:layout_width="10dp"
-                        android:layout_height="60dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"
-                        android:alpha="1.0"/>
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/txtCitasMedicas2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ibuprofeno 400mg"
-                            android:textSize="16sp"
-                            android:textColor="#000000"
-                            android:fontFamily="serif" />
-
-                        <TextView
-                            android:id="@+id/txtHora1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="08:00"
-                            android:textSize="14sp"
-                            android:textColor="#777777"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="serif" />
-                        <TextView
-                            android:id="@+id/txtHora"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Revisión general"
-                            android:textSize="14sp"
-                            android:textColor="#777777"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="serif" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="serif"
-                android:text="Medicación tomada"
-                android:textSize="15sp"
-                android:layout_gravity="left"
-                android:layout_marginTop="9dp"
-                android:textColor="#81C784"
-                android:layout_marginStart="27dp"
-                android:textFontWeight="600"/>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:padding="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <View
-                        android:layout_marginLeft="8dp"
-                        android:layout_width="10dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_gravity="center_vertical"
-                        android:alpha="1.0"
-                        android:layout_marginStart="10dp"/>
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="55dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/txtMedicamento9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ibuprofeno 400mg - Tomado"
-                            android:textSize="16sp"
-                            android:textColor="#000000"
-                            android:fontFamily="serif" />
-
-                        <TextView
-                            android:id="@+id/txtCitasMedicas40"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="08:00"
-                            android:textSize="14sp"
-                            android:textColor="#777777"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="serif" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:padding="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <View
-                        android:layout_marginLeft="8dp"
-                        android:layout_width="10dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_gravity="center_vertical"
-                        android:alpha="1.0"
-                        android:layout_marginStart="10dp"/>
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="55dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/txtCitasMedicas60"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ibuprofeno 400mg - Tomado"
-                            android:textSize="16sp"
-                            android:textColor="#000000"
-                            android:fontFamily="serif" />
-
-                        <TextView
-                            android:id="@+id/txtHora69"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="08:00"
-                            android:textSize="14sp"
-                            android:textColor="#777777"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="serif" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="serif"
-                android:text="Citas médicas"
-                android:textSize="15sp"
-                android:layout_gravity="left"
-                android:layout_marginTop="9dp"
-                android:textColor="#E57373"
-                android:layout_marginStart="27dp"
-                android:textFontWeight="600"/>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:padding="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <View
-                        android:layout_marginLeft="8dp"
-                        android:layout_width="10dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_gravity="center_vertical"
-                        android:alpha="1.0"
-                        android:layout_marginStart="10dp"/>
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="55dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/txtMedicamento90"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ibuprofeno 400mg - No tomada"
-                            android:textSize="16sp"
-                            android:textColor="#000000"
-                            android:fontFamily="serif" />
-
-                        <TextView
-                            android:id="@+id/txtCitasMedicas4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="08:00"
-                            android:textSize="14sp"
-                            android:textColor="#777777"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="serif" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="4dp"
-                android:padding="12dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <View
-                        android:layout_marginLeft="8dp"
-                        android:layout_width="10dp"
-                        android:layout_height="40dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_gravity="center_vertical"
-                        android:alpha="1.0"
-                        android:layout_marginStart="10dp"/>
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="55dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:id="@+id/txtCitasMedicas6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Ibuprofeno 400mg - No tomada"
-                            android:textSize="16sp"
-                            android:textColor="#000000"
-                            android:fontFamily="serif" />
-
-                        <TextView
-                            android:id="@+id/txtHora76"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="08:00"
-                            android:textSize="14sp"
-                            android:textColor="#777777"
-                            android:layout_marginTop="4dp"
-                            android:fontFamily="serif" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-        </LinearLayout>
-
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:text="Medicación tomada"
+            android:textSize="15sp"
+            android:layout_gravity="start"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"
+            android:textColor="#81C784"
+            android:layout_marginStart="16dp"
+            android:textStyle="bold"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="6dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="8dp">
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/green_bar_calendar_patients"
+                    android:layout_gravity="center_vertical"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp">
+
+                    <TextView
+                        android:id="@+id/txtMedicamentoTomado1" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Aspirina 100mg - Tomada"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:fontFamily="serif" />
+
+                    <TextView
+                        android:id="@+id/txtHoraTomada1" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="07:00"
+                        android:textSize="14sp"
+                        android:textColor="#777777"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="serif" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="6dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="8dp">
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/green_bar_calendar_patients"
+                    android:layout_gravity="center_vertical"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp">
+
+                    <TextView
+                        android:id="@+id/txtMedicamentoTomado2" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vitamina D - Tomada"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:fontFamily="serif" />
+
+                    <TextView
+                        android:id="@+id/txtHoraTomada2" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="07:00"
+                        android:textSize="14sp"
+                        android:textColor="#777777"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="serif" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:text="Medicación No Tomada" android:textSize="15sp"
+            android:layout_gravity="start"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="4dp"
+            android:textColor="#E57373"
+            android:layout_marginStart="16dp"
+            android:textStyle="bold"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="6dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="8dp">
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/red_bar_calendar_patients"
+                    android:layout_gravity="center_vertical"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp">
+
+                    <TextView
+                        android:id="@+id/txtMedicamentoNoTomado1" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Antiácido - No tomada"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:fontFamily="serif" />
+
+                    <TextView
+                        android:id="@+id/txtHoraNoTomada1" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="14:00"
+                        android:textSize="14sp"
+                        android:textColor="#777777"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="serif" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="6dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="8dp">
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="@drawable/red_bar_calendar_patients"
+                    android:layout_gravity="center_vertical"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:paddingEnd="16dp">
+
+                    <TextView
+                        android:id="@+id/txtMedicamentoNoTomado2" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Suplemento - No tomada"
+                        android:textSize="16sp"
+                        android:textColor="#000000"
+                        android:fontFamily="serif" />
+
+                    <TextView
+                        android:id="@+id/txtHoraNoTomada2" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="18:00"
+                        android:textSize="14sp"
+                        android:textColor="#777777"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="serif" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</LinearLayout>
 </ScrollView>
