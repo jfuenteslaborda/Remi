@@ -21,9 +21,6 @@
             android:name=".home_medico"
             android:exported="false" />
         <activity
-            android:name=".calendario_medico"
-            android:exported="false" />
-        <activity
             android:name=".activity_home_pacientes"
             android:exported="true" />
         <activity
