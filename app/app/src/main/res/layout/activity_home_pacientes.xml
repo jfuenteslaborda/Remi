@@ -563,8 +563,6 @@
                         android:text="08:00"
                         android:textSize="12sp"
                         android:textColor="#474747" />
-
-
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

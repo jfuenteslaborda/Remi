@@ -6,20 +6,19 @@
         android:id="@+id/menuNotificaciones"
         android:title="@string/menuNotificaciones"
         android:icon="@drawable/img_notificaciones_2" />
-
+    <item
+        android:id="@+id/menuTratamientos"
+        android:title="@string/menuTratamientos"
+        android:icon="@drawable/img_pastilla" />
+    <item
+        android:id="@+id/menuHome"
+        android:title="@string/menuHome"
+        android:icon="@drawable/img_home" />
     <item
         android:id="@+id/menuTratamientos"
         android:title="Tratamientos"
         android:icon="@drawable/img_pastilla" />
 
-    <item
-        android:id="@+id/menuHome"
-        android:title="@string/menuHome"
-        android:icon="@drawable/img_home" />
 
-    <item
-        android:id="@+id/menuCalendario"
-        android:title="@string/menuCalendario"
-        android:icon="@drawable/img_calendario" />
 </group>
 </menu>

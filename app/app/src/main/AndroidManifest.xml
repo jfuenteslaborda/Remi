@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App">
         <activity
+            android:name=".notificaciones_medico"
+            android:exported="false" />
+        <activity
             android:name=".tratamientos_medico"
             android:exported="false" />
         <activity
             android:name=".home_medico"
-            android:exported="false" />
-        <activity
-            android:name=".calendario_medico"
             android:exported="false" />
         <activity
             android:name=".activity_home_pacientes"
