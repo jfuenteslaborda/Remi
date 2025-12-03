@@ -43,24 +43,24 @@
                 tools:text="Cardiología" />
 
             <TextView
-                android:id="@+id/txtCitaHora"
+                android:id="@+id/txtCitaHoraFecha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:textColor="#777777"
                 android:layout_marginTop="4dp"
                 android:fontFamily="serif"
-                tools:text="10:30" />
+                tools:text="Hoy a las 10:30" />
 
             <TextView
-                android:id="@+id/txtCitaDetalle"
+                android:id="@+id/txtCitaDoctor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:textColor="#777777"
                 android:layout_marginTop="4dp"
                 android:fontFamily="serif"
-                tools:text="Revisión general" />
+                tools:text="Dr. Alberto Pérez" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

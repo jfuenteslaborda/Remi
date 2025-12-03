@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.google.ksp)
+    // alias(libs.plugins.google.ksp) <-- ELIMINADO
 }
 
 android {
@@ -42,9 +42,11 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.compiler)
+    // Dependencias de Room (eliminadas)
+    // implementation(libs.androidx.room.runtime)
+    // implementation(libs.androidx.room.ktx)
+    // ksp(libs.androidx.room.compiler)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

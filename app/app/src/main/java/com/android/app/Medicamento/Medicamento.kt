@@ -1,4 +1,4 @@
-package com.android.app.models
+package com.android.app.Medicamento
 
 data class Medicamento(
     val id: Int,
