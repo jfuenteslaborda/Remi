@@ -7,7 +7,10 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
+import androidx.core.provider.FontsContractCompat
+import com.android.app.models.Rol
 import java.time.LocalDate
+
 
 class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -26,7 +29,9 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         const val COLUMN_CONTRASENA = "contrasena"
         const val COLUMN_FECHA_CREACION = "fecha_creacion"
 
-        // === TABLA MEDICAMENTO ===
+        const val COLUMN_ROL= "rol"
+
+        // === TABLA MEDICAMENTO ===s
         const val TABLE_MEDICAMENTO = "medicamento"
         const val MEDICAMENTO_ID = "id_medicamento"
         const val MEDICAMENTO_NOMBRE = "nombre"
@@ -40,9 +45,9 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         // Los ID se autoincrementan, pero para la asignación en los medicamentos
         // asumimos que el primer usuario tendrá ID=1 y el segundo ID=2, etc.
         private val USUARIOS_DE_PRUEBA = listOf(
-            mapOf(COLUMN_NOMBRE to "rbernal", COLUMN_EMAIL to "rbernal@gmail.com", COLUMN_CONTRASENA to "123"),
-            mapOf(COLUMN_NOMBRE to "jfuentes", COLUMN_EMAIL to "jfuentes@gmail.com", COLUMN_CONTRASENA to "123"),
-            mapOf(COLUMN_NOMBRE to "rromero", COLUMN_EMAIL to "rromero@gmail.com", COLUMN_CONTRASENA to "123")
+            mapOf(COLUMN_NOMBRE to "rbernal", COLUMN_EMAIL to "rbernal@gmail.com", COLUMN_CONTRASENA to "123", COLUMN_ROL to "MEDICO"),
+            mapOf(COLUMN_NOMBRE to "jfuentes", COLUMN_EMAIL to "jfuentes@gmail.com", COLUMN_CONTRASENA to "123",COLUMN_ROL to "PACIENTE"),
+            mapOf(COLUMN_NOMBRE to "rromero", COLUMN_EMAIL to "rromero@gmail.com", COLUMN_CONTRASENA to "123",COLUMN_ROL to "MEDICO")
         )
 
         private val MEDICAMENTOS_DE_PRUEBA = listOf(
@@ -65,7 +70,8 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 "$COLUMN_NOMBRE TEXT NOT NULL," +
                 "$COLUMN_EMAIL TEXT UNIQUE NOT NULL," +
                 "$COLUMN_CONTRASENA TEXT NOT NULL," +
-                "$COLUMN_FECHA_CREACION TEXT)"
+                "$COLUMN_FECHA_CREACION TEXT," +
+                "$COLUMN_ROL TEXT NOT NULL)"
 
     private val SQL_CREATE_MEDICAMENTO =
         "CREATE TABLE $TABLE_MEDICAMENTO (" +
@@ -120,6 +126,7 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 put(COLUMN_EMAIL, userData[COLUMN_EMAIL])
                 put(COLUMN_CONTRASENA, userData[COLUMN_CONTRASENA])
                 put(COLUMN_FECHA_CREACION, LocalDate.now().toString())
+                put(COLUMN_ROL, userData[COLUMN_ROL])
             }
 
             val newRowId = db.insert(TABLE_USUARIO, null, values)
@@ -172,8 +179,10 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 val email = getString(getColumnIndexOrThrow(COLUMN_EMAIL))
                 val contrasena = getString(getColumnIndexOrThrow(COLUMN_CONTRASENA))
                 val fechaCreacion = getString(getColumnIndexOrThrow(COLUMN_FECHA_CREACION))
+                val rolString = getString(getColumnIndexOrThrow(COLUMN_ROL))
+                val rol = Rol.valueOf(rolString)
 
-                userList.add(Usuario(id, nombre, email, contrasena, fechaCreacion))
+                userList.add(Usuario(id, nombre, email, contrasena, fechaCreacion,rol))
             }
         }
         cursor.close()
