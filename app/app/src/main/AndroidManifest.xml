@@ -15,7 +15,7 @@
             android:name=".TestingCalendarNavBarPacientesRodrigo"
             android:exported="false"
             tools:ignore="Instantiatable" />
-        <activity android:name=".PacientesMedicosActivityInicio"
+        <activity android:name=".pacientes_medico"
             android:exported="true">
 
             <intent-filter>
