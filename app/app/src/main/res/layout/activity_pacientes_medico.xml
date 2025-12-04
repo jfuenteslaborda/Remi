@@ -9,7 +9,8 @@
     <ListView
         android:id="@+id/listViewPacientes"
         android:layout_width="match_parent"
-        android:layout_height="680dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:divider="@android:color/transparent"
         android:dividerHeight="8dp"
         android:padding="16dp" />
@@ -22,7 +23,6 @@
         app:itemIconTint="@color/seleccionar_menu"
         app:itemTextColor="@color/seleccionar_menu"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/menu" />
+        app:menu="@menu/menu"/>
 
 </LinearLayout>
-
