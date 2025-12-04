@@ -9,6 +9,8 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
+import androidx.core.provider.FontsContractCompat
+import com.android.app.models.Pacientes
 import com.android.app.models.Rol
 import java.time.LocalDate
 
@@ -342,4 +344,34 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
 
         return count
     }
+//tener pacientes con sus numero de citas
+    fun obtenerPacientesConCitas(): List<Pacientes> {
+        val lista = mutableListOf<Pacientes>()
+        val db = this.readableDatabase
+
+        // Query para obtener pacientes y número de citas realizadas
+        val query = """
+        SELECT u.$COLUMN_NOMBRE, u.fecha_creacion, COUNT(c.id_cita) as num_citas
+        FROM $TABLE_USUARIO u
+        LEFT JOIN citas c ON u.$COLUMN_ID = c.id_usuario AND c.estado = 'realizada'
+        WHERE u.$COLUMN_ROL = ?
+        GROUP BY u.$COLUMN_ID
+    """.trimIndent()
+
+        val cursor = db.rawQuery(query, arrayOf(Rol.PACIENTE.name))
+
+        with(cursor) {
+            while (moveToNext()) {
+                val nombre = getString(getColumnIndexOrThrow(COLUMN_NOMBRE))
+                val fechaNacimiento = getString(getColumnIndexOrThrow("fecha_creacion")) // aquí puedes cambiar si tienes otro campo fecha_nacimiento
+                val numCitas = getInt(getColumnIndexOrThrow("num_citas"))
+
+                lista.add(Pacientes(nombre, fechaNacimiento, numCitas))
+            }
+        }
+
+        cursor.close()
+        return lista
+    }
+
 }
