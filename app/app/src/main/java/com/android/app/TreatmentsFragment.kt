@@ -15,3 +15,5 @@ class TreatmentsFragment : Fragment() {
         return inflater.inflate(R.layout.activity_tratamientos_pacientes, container, false)
     }
 }
+
+
