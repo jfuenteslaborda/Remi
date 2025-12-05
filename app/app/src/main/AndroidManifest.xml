@@ -35,7 +35,7 @@
             android:name=".activity_notifications_pacientes"
             android:exported="true" />
         <activity
-            android:name=".activity_calendar_pacientes"
+            android:name=".ActivityCalendarPacientes"
             android:exported="true" />
         <activity
             android:name=".Login"

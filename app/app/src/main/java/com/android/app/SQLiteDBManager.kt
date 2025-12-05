@@ -15,7 +15,7 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
     companion object {
         // ⚠️ Aumentamos la versión para forzar la recreación de la DB
         // Para que se ejecute onUpgrade y se creen las nuevas tablas (Medicamento)
-        const val DATABASE_VERSION = 3
+        const val DATABASE_VERSION = 4
         const val DATABASE_NAME = "MyAppData.db"
 
         // === TABLA USUARIO ===
@@ -72,9 +72,11 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         "CREATE TABLE $TABLE_MEDICAMENTO (" +
                 "$MEDICAMENTO_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "$MEDICAMENTO_NOMBRE TEXT NOT NULL," +
+                "$MEDICAMENTO_DESCRIPCION TEXT," +   // <-- faltaba esta línea
                 "$MEDICAMENTO_HORA TEXT," +
                 "$MEDICAMENTO_TOMADO INTEGER," +
-                "$MEDICAMENTO_ID_USUARIO INTEGER)" // Columna de clave foránea
+                "$MEDICAMENTO_ID_USUARIO INTEGER)"
+
 
     // --- SQL DELETION STATEMENTS ---
 
@@ -141,6 +143,7 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
             val values = ContentValues().apply {
                 put(MEDICAMENTO_NOMBRE, medicamentoData[MEDICAMENTO_NOMBRE] as String)
                 put(MEDICAMENTO_HORA, medicamentoData[MEDICAMENTO_HORA] as String)
+                put(MEDICAMENTO_DESCRIPCION, medicamentoData[MEDICAMENTO_DESCRIPCION] as String)
                 put(MEDICAMENTO_TOMADO, medicamentoData[MEDICAMENTO_TOMADO] as Int)
                 put(MEDICAMENTO_ID_USUARIO, medicamentoData[MEDICAMENTO_ID_USUARIO] as Int)
             }
