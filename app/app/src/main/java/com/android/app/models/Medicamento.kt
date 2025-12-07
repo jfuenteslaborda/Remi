@@ -1,10 +1,10 @@
 package com.android.app.models
 
 data class Medicamento(
-    val id: Int,
+    var id: Int,
     val nombre: String,
     val hora: String,
     val descripcion: String,
-    val tomado: Boolean,
+    var tomado: Boolean,
     val idUsuario: Int
 )

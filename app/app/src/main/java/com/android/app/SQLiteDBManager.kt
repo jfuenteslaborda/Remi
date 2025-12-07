@@ -1,211 +1,240 @@
 package com.android.app
 
-import com.android.app.models.Usuario
-import com.android.app.models.Medicamento
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
+import com.android.app.models.Medicamento
+import com.android.app.models.Usuario
 import java.time.LocalDate
 
 class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
-    // --- Definiciones de la Base de Datos ---
     companion object {
-        // ⚠️ Aumentamos la versión para forzar la recreación de la DB
-        // Para que se ejecute onUpgrade y se creen las nuevas tablas (Medicamento)
-        const val DATABASE_VERSION = 3
+        const val DATABASE_VERSION = 4 // Incrementa si cambias la estructura
         const val DATABASE_NAME = "MyAppData.db"
 
-        // === TABLA USUARIO ===
+        // --- TABLA USUARIO ---
         const val TABLE_USUARIO = "usuario"
         const val COLUMN_ID = "id"
         const val COLUMN_NOMBRE = "nombre"
         const val COLUMN_EMAIL = "email"
         const val COLUMN_CONTRASENA = "contrasena"
+        const val COLUMN_DESCRIPCION = "descripcion"
         const val COLUMN_FECHA_CREACION = "fecha_creacion"
+        const val COLUMN_ID_MEDICO = "id_medico"
 
-        // === TABLA MEDICAMENTO ===
+        // --- TABLA MEDICAMENTO ---
         const val TABLE_MEDICAMENTO = "medicamento"
         const val MEDICAMENTO_ID = "id_medicamento"
         const val MEDICAMENTO_NOMBRE = "nombre"
         const val MEDICAMENTO_DESCRIPCION = "descripcion"
         const val MEDICAMENTO_HORA = "hora"
-        const val MEDICAMENTO_TOMADO = "tomado" // 0 o 1
-        const val MEDICAMENTO_ID_USUARIO = "id_usuario" // CLAVE FORÁNEA
+        const val MEDICAMENTO_TOMADO = "tomado"
+        const val MEDICAMENTO_ID_USUARIO = "id_usuario"
 
-        // --- REGISTROS DE PRUEBA (ASIGNACIÓN DE ID) ---
-
-        // Los ID se autoincrementan, pero para la asignación en los medicamentos
-        // asumimos que el primer usuario tendrá ID=1 y el segundo ID=2, etc.
         private val USUARIOS_DE_PRUEBA = listOf(
-            mapOf(COLUMN_NOMBRE to "rbernal", COLUMN_EMAIL to "rbernal@gmail.com", COLUMN_CONTRASENA to "123"),
-            mapOf(COLUMN_NOMBRE to "jfuentes", COLUMN_EMAIL to "jfuentes@gmail.com", COLUMN_CONTRASENA to "123"),
-            mapOf(COLUMN_NOMBRE to "rromero", COLUMN_EMAIL to "rromero@gmail.com", COLUMN_CONTRASENA to "123")
+            mapOf(
+                COLUMN_NOMBRE to "rbernal",
+                COLUMN_DESCRIPCION to "Paciente con problemas respiratorios",
+                COLUMN_EMAIL to "rbernal@gmail.com",
+                COLUMN_CONTRASENA to "123",
+                COLUMN_ID_MEDICO to 2
+            ),
+            mapOf(
+                COLUMN_NOMBRE to "jfuentes",
+                COLUMN_DESCRIPCION to "Paciente con el fémur roto",
+                COLUMN_EMAIL to "jfuentes@gmail.com",
+                COLUMN_CONTRASENA to "123",
+                COLUMN_ID_MEDICO to 2
+            ),
+            mapOf(
+                COLUMN_NOMBRE to "rromero",
+                COLUMN_DESCRIPCION to "Paciente diabético",
+                COLUMN_EMAIL to "rromero@gmail.com",
+                COLUMN_CONTRASENA to "123",
+                COLUMN_ID_MEDICO to 2
+            )
         )
 
         private val MEDICAMENTOS_DE_PRUEBA = listOf(
-            // Asignados al Usuario 1 (rbernal)
-            mapOf(MEDICAMENTO_NOMBRE to "Ibuprofeno 500mg", MEDICAMENTO_DESCRIPCION to "Tomar diluido con agua", MEDICAMENTO_HORA to "08:00", MEDICAMENTO_TOMADO to 0, MEDICAMENTO_ID_USUARIO to 1),
-            mapOf(MEDICAMENTO_NOMBRE to "Aspirina 100mg", MEDICAMENTO_DESCRIPCION to "Tomar con cuidado", MEDICAMENTO_HORA to "12:00", MEDICAMENTO_TOMADO to 0, MEDICAMENTO_ID_USUARIO to 1),
-            // Asignados al Usuario 2 (jfuentes)
-            mapOf(MEDICAMENTO_NOMBRE to "Paracetamol 300mg", MEDICAMENTO_DESCRIPCION to "Tomar diluido con agua" ,MEDICAMENTO_HORA to "16:00", MEDICAMENTO_TOMADO to 1, MEDICAMENTO_ID_USUARIO to 2),
-            mapOf(MEDICAMENTO_NOMBRE to "Vitaminas C", MEDICAMENTO_DESCRIPCION to "Recomendable machacar", MEDICAMENTO_HORA to "20:00", MEDICAMENTO_TOMADO to 0, MEDICAMENTO_ID_USUARIO to 2),
-            // Asignados al Usuario 3 (rromero)
-            mapOf(MEDICAMENTO_NOMBRE to "Antibiotico", MEDICAMENTO_DESCRIPCION to "Tomar diluido con agua", MEDICAMENTO_HORA to "10:00", MEDICAMENTO_TOMADO to 1, MEDICAMENTO_ID_USUARIO to 3)
+            mapOf(
+                MEDICAMENTO_NOMBRE to "Ibuprofeno 500mg",
+                MEDICAMENTO_DESCRIPCION to "Tomar diluido con agua",
+                MEDICAMENTO_HORA to "08:00",
+                MEDICAMENTO_TOMADO to 0,
+                MEDICAMENTO_ID_USUARIO to 1
+            ),
+            mapOf(
+                MEDICAMENTO_NOMBRE to "Aspirina 100mg",
+                MEDICAMENTO_DESCRIPCION to "Tomar con cuidado",
+                MEDICAMENTO_HORA to "12:00",
+                MEDICAMENTO_TOMADO to 0,
+                MEDICAMENTO_ID_USUARIO to 1
+            ),
+            mapOf(
+                MEDICAMENTO_NOMBRE to "Paracetamol 300mg",
+                MEDICAMENTO_DESCRIPCION to "Tomar diluido con agua",
+                MEDICAMENTO_HORA to "16:00",
+                MEDICAMENTO_TOMADO to 1,
+                MEDICAMENTO_ID_USUARIO to 2
+            ),
+            mapOf(
+                MEDICAMENTO_NOMBRE to "Vitaminas C",
+                MEDICAMENTO_DESCRIPCION to "Recomendable machacar",
+                MEDICAMENTO_HORA to "20:00",
+                MEDICAMENTO_TOMADO to 0,
+                MEDICAMENTO_ID_USUARIO to 2
+            ),
+            mapOf(
+                MEDICAMENTO_NOMBRE to "Antibiotico",
+                MEDICAMENTO_DESCRIPCION to "Tomar diluido con agua",
+                MEDICAMENTO_HORA to "10:00",
+                MEDICAMENTO_TOMADO to 1,
+                MEDICAMENTO_ID_USUARIO to 3
+            )
         )
     }
 
-    // --- SQL CREATION STATEMENTS ---
-
+    // --- SQL CREATION ---
     private val SQL_CREATE_USUARIO =
-        "CREATE TABLE $TABLE_USUARIO (" +
-                "$COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "$COLUMN_NOMBRE TEXT NOT NULL," +
-                "$COLUMN_EMAIL TEXT UNIQUE NOT NULL," +
-                "$COLUMN_CONTRASENA TEXT NOT NULL," +
-                "$COLUMN_FECHA_CREACION TEXT)"
+        """
+        CREATE TABLE $TABLE_USUARIO (
+            $COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            $COLUMN_NOMBRE TEXT NOT NULL,
+            $COLUMN_EMAIL TEXT UNIQUE NOT NULL,
+            $COLUMN_CONTRASENA TEXT NOT NULL,
+            $COLUMN_DESCRIPCION TEXT NOT NULL,
+            $COLUMN_ID_MEDICO INTEGER NOT NULL,
+            $COLUMN_FECHA_CREACION TEXT
+        )
+        """.trimIndent()
 
     private val SQL_CREATE_MEDICAMENTO =
-        "CREATE TABLE $TABLE_MEDICAMENTO (" +
-                "$MEDICAMENTO_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "$MEDICAMENTO_NOMBRE TEXT NOT NULL," +
-                "$MEDICAMENTO_HORA TEXT," +
-                "$MEDICAMENTO_DESCRIPCION TEXT," +
-                "$MEDICAMENTO_TOMADO INTEGER," +
-                "$MEDICAMENTO_ID_USUARIO INTEGER)" // Columna de clave foránea
-
-    // --- SQL DELETION STATEMENTS ---
+        """
+        CREATE TABLE $TABLE_MEDICAMENTO (
+            $MEDICAMENTO_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            $MEDICAMENTO_NOMBRE TEXT NOT NULL,
+            $MEDICAMENTO_HORA TEXT,
+            $MEDICAMENTO_DESCRIPCION TEXT,
+            $MEDICAMENTO_TOMADO INTEGER,
+            $MEDICAMENTO_ID_USUARIO INTEGER
+        )
+        """.trimIndent()
 
     private val SQL_DELETE_USUARIO = "DROP TABLE IF EXISTS $TABLE_USUARIO"
     private val SQL_DELETE_MEDICAMENTO = "DROP TABLE IF EXISTS $TABLE_MEDICAMENTO"
 
-    // --- MÉTODOS DE SQLITEOPENHELPER ---
-
     override fun onCreate(db: SQLiteDatabase) {
-        // 1. Crear tabla USUARIO
         db.execSQL(SQL_CREATE_USUARIO)
-        Log.d("SQLiteDBManager", "✅ Tabla '$TABLE_USUARIO' creada.")
-
-        // 2. Crear tabla MEDICAMENTO
         db.execSQL(SQL_CREATE_MEDICAMENTO)
-        Log.d("SQLiteDBManager", "✅ Tabla '$TABLE_MEDICAMENTO' creada.")
-
-        // 3. Insertar Registros Automáticos
-        insertarRegistrosAutomaticos(db) // Inserta usuarios
-        insertarMedicamentosAutomaticos(db) // Inserta medicamentos y los enlaza a usuarios
+        insertarRegistrosAutomaticos(db)
+        insertarMedicamentosAutomaticos(db)
+        Log.d("SQLiteDBManager", "Tablas creadas y datos de prueba insertados.")
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        // Eliminar y recrear ambas tablas en caso de actualización de versión
         db.execSQL(SQL_DELETE_USUARIO)
         db.execSQL(SQL_DELETE_MEDICAMENTO)
         onCreate(db)
     }
 
-    override fun onDowngrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
-        onUpgrade(db, oldVersion, newVersion)
-    }
-
-    // --- LÓGICA DE INSERCIÓN DE REGISTROS AUTOMÁTICOS ---
-
     private fun insertarRegistrosAutomaticos(db: SQLiteDatabase) {
-        var insertedCount = 0
-        Log.d("SQLiteDBManager", "⏳ Insertando ${USUARIOS_DE_PRUEBA.size} usuarios predefinidos...")
-
         for (userData in USUARIOS_DE_PRUEBA) {
             val values = ContentValues().apply {
-                put(COLUMN_NOMBRE, userData[COLUMN_NOMBRE])
-                put(COLUMN_EMAIL, userData[COLUMN_EMAIL])
-                put(COLUMN_CONTRASENA, userData[COLUMN_CONTRASENA])
+                put(COLUMN_NOMBRE, userData[COLUMN_NOMBRE] as String)
+                put(COLUMN_ID_MEDICO, userData[COLUMN_ID_MEDICO] as Int)
+                put(COLUMN_EMAIL, userData[COLUMN_EMAIL] as String)
+                put(COLUMN_DESCRIPCION, userData[COLUMN_DESCRIPCION] as String)
+                put(COLUMN_CONTRASENA, userData[COLUMN_CONTRASENA] as String)
                 put(COLUMN_FECHA_CREACION, LocalDate.now().toString())
             }
-
-            val newRowId = db.insert(TABLE_USUARIO, null, values)
-
-            if (newRowId != -1L) {
-                insertedCount++
-            } else {
-                Log.e("SQLiteDBManager", "❌ Error al insertar el usuario: ${userData[COLUMN_NOMBRE]}")
-            }
+            db.insert(TABLE_USUARIO, null, values)
         }
-        Log.d("SQLiteDBManager", "✅ Usuarios insertados: $insertedCount.")
     }
 
     private fun insertarMedicamentosAutomaticos(db: SQLiteDatabase) {
-        var insertedCount = 0
-        Log.d("SQLiteDBManager", "⏳ Insertando ${MEDICAMENTOS_DE_PRUEBA.size} medicamentos predefinidos...")
-
-        for (medicamentoData in MEDICAMENTOS_DE_PRUEBA) {
+        for (medData in MEDICAMENTOS_DE_PRUEBA) {
             val values = ContentValues().apply {
-                put(MEDICAMENTO_NOMBRE, medicamentoData[MEDICAMENTO_NOMBRE] as String)
-                put(MEDICAMENTO_HORA, medicamentoData[MEDICAMENTO_HORA] as String)
-                put(MEDICAMENTO_DESCRIPCION, medicamentoData[MEDICAMENTO_DESCRIPCION] as String)
-                put(MEDICAMENTO_TOMADO, medicamentoData[MEDICAMENTO_TOMADO] as Int)
-                put(MEDICAMENTO_ID_USUARIO, medicamentoData[MEDICAMENTO_ID_USUARIO] as Int)
+                put(MEDICAMENTO_NOMBRE, medData[MEDICAMENTO_NOMBRE] as String)
+                put(MEDICAMENTO_HORA, medData[MEDICAMENTO_HORA] as String)
+                put(MEDICAMENTO_DESCRIPCION, medData[MEDICAMENTO_DESCRIPCION] as String)
+                put(MEDICAMENTO_TOMADO, medData[MEDICAMENTO_TOMADO] as Int)
+                put(MEDICAMENTO_ID_USUARIO, medData[MEDICAMENTO_ID_USUARIO] as Int)
             }
-
-            val newRowId = db.insert(TABLE_MEDICAMENTO, null, values)
-
-            if (newRowId != -1L) {
-                insertedCount++
-            } else {
-                Log.e("SQLiteDBManager", "❌ Error al insertar el medicamento: ${medicamentoData[MEDICAMENTO_NOMBRE]}")
-            }
+            db.insert(TABLE_MEDICAMENTO, null, values)
         }
-        Log.d("SQLiteDBManager", "✅ Medicamentos insertados: $insertedCount.")
     }
 
-
-    // --- LÓGICA DE LECTURA DE DATOS ---
-
+    // --- CONSULTAS ---
     fun obtenerTodosLosUsuarios(): List<Usuario> {
         val userList = mutableListOf<Usuario>()
-        val db = this.readableDatabase
+        val db = readableDatabase
         val cursor = db.rawQuery("SELECT * FROM $TABLE_USUARIO", null)
-
-        with(cursor) {
-            while (moveToNext()) {
-                val id = getInt(getColumnIndexOrThrow(COLUMN_ID))
-                val nombre = getString(getColumnIndexOrThrow(COLUMN_NOMBRE))
-                val email = getString(getColumnIndexOrThrow(COLUMN_EMAIL))
-                val contrasena = getString(getColumnIndexOrThrow(COLUMN_CONTRASENA))
-                val fechaCreacion = getString(getColumnIndexOrThrow(COLUMN_FECHA_CREACION))
-
-                userList.add(Usuario(id, nombre, email, contrasena, fechaCreacion))
+        cursor.use {
+            while (it.moveToNext()) {
+                val id = it.getInt(it.getColumnIndexOrThrow(COLUMN_ID))
+                val nombre = it.getString(it.getColumnIndexOrThrow(COLUMN_NOMBRE))
+                val email = it.getString(it.getColumnIndexOrThrow(COLUMN_EMAIL))
+                val descripcion = it.getString(it.getColumnIndexOrThrow(COLUMN_DESCRIPCION))
+                val contrasena = it.getString(it.getColumnIndexOrThrow(COLUMN_CONTRASENA))
+                val fechaCreacion = it.getString(it.getColumnIndexOrThrow(COLUMN_FECHA_CREACION))
+                val idMedico = it.getInt(it.getColumnIndexOrThrow(COLUMN_ID_MEDICO))
+                userList.add(Usuario(id, nombre, email, descripcion, contrasena, fechaCreacion, idMedico))
             }
         }
-        cursor.close()
         return userList
     }
 
-    /**
-     * Recupera todos los medicamentos asociados a un ID de usuario específico.
-     */
-    fun obtenerMedicamentosPorUsuario(userId: Int): List<Medicamento> {
-        val medicamentoList = mutableListOf<Medicamento>()
-        val db = this.readableDatabase
-
-        // Consulta filtrada usando WHERE
-        val query = "SELECT * FROM $TABLE_MEDICAMENTO WHERE $MEDICAMENTO_ID_USUARIO = ?"
-
-        // El '?' se reemplaza por el valor de userId
-        val cursor = db.rawQuery(query, arrayOf(userId.toString()))
-
-        with(cursor) {
-            while (moveToNext()) {
-                val id = getInt(getColumnIndexOrThrow(MEDICAMENTO_ID))
-                val nombre = getString(getColumnIndexOrThrow(MEDICAMENTO_NOMBRE))
-                val hora = getString(getColumnIndexOrThrow(MEDICAMENTO_HORA))
-                val descripcion = getString(getColumnIndexOrThrow(MEDICAMENTO_DESCRIPCION))
-                // Convierte el INTEGER (0 o 1) a Boolean
-                val tomado = getInt(getColumnIndexOrThrow(MEDICAMENTO_TOMADO)) == 1
-
-                medicamentoList.add(Medicamento(id, nombre, hora, descripcion, tomado, userId))
+    fun obtenerUsuarioPorMedico(medicoId: Int): List<Usuario> {
+        val userList = mutableListOf<Usuario>()
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_USUARIO WHERE $COLUMN_ID_MEDICO = ?"
+        val cursor = db.rawQuery(query, arrayOf(medicoId.toString()))
+        cursor.use {
+            while (it.moveToNext()) {
+                val id = it.getInt(it.getColumnIndexOrThrow(COLUMN_ID))
+                val nombre = it.getString(it.getColumnIndexOrThrow(COLUMN_NOMBRE))
+                val email = it.getString(it.getColumnIndexOrThrow(COLUMN_EMAIL))
+                val descripcion = it.getString(it.getColumnIndexOrThrow(COLUMN_DESCRIPCION))
+                val contrasena = it.getString(it.getColumnIndexOrThrow(COLUMN_CONTRASENA))
+                val fechaCreacion = it.getString(it.getColumnIndexOrThrow(COLUMN_FECHA_CREACION))
+                val idMedico = it.getInt(it.getColumnIndexOrThrow(COLUMN_ID_MEDICO))
+                userList.add(Usuario(id, nombre, email, descripcion, contrasena, fechaCreacion, idMedico))
             }
         }
-        cursor.close()
+        return userList
+    }
+
+    fun obtenerMedicamentosPorUsuario(userId: Int): List<Medicamento> {
+        val medicamentoList = mutableListOf<Medicamento>()
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_MEDICAMENTO WHERE $MEDICAMENTO_ID_USUARIO = ?"
+        val cursor = db.rawQuery(query, arrayOf(userId.toString()))
+        cursor.use {
+            while (it.moveToNext()) {
+                val id = it.getInt(it.getColumnIndexOrThrow(MEDICAMENTO_ID))
+                val nombre = it.getString(it.getColumnIndexOrThrow(MEDICAMENTO_NOMBRE))
+                val hora = it.getString(it.getColumnIndexOrThrow(MEDICAMENTO_HORA))
+                val descripcion = it.getString(it.getColumnIndexOrThrow(MEDICAMENTO_DESCRIPCION))
+                val tomado = it.getInt(it.getColumnIndexOrThrow(MEDICAMENTO_TOMADO)) == 1
+                val idUsuario = it.getInt(it.getColumnIndexOrThrow(MEDICAMENTO_ID_USUARIO))
+                medicamentoList.add(Medicamento(id, nombre, hora, descripcion, tomado, idUsuario))
+            }
+        }
         return medicamentoList
+    }
+
+    fun insertarMedicamento(m: Medicamento): Long {
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(MEDICAMENTO_NOMBRE, m.nombre)
+            put(MEDICAMENTO_HORA, m.hora)
+            put(MEDICAMENTO_DESCRIPCION, m.descripcion)
+            put(MEDICAMENTO_TOMADO, if (m.tomado) 1 else 0)
+            put(MEDICAMENTO_ID_USUARIO, m.idUsuario)
+        }
+        return db.insert(TABLE_MEDICAMENTO, null, values)
     }
 }
