@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/activity_tratamientos_pacientes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center_horizontal">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:id="@+id/imageLogo"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/remi_logo_bien"/>
+
+            <TextView
+                android:id="@+id/txtTituloApp"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:text="Remi"
+                android:textSize="32sp" />
+
+            <ImageView
+                android:id="@+id/imageProfile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/profile" />
+        </LinearLayout>
+
+        <!-- Pastillas a tomar hoy -->
+        <TextView
+            android:id="@+id/txtPastillasHoy"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:fontFamily="serif"
+            android:text="Pastillas a tomar hoy"
+            android:textSize="15sp"
+            android:layout_gravity="left"
+            android:layout_marginTop="9dp"
+            android:textColor="#737373"
+            android:layout_marginStart="27dp" />
+
+        <!-- CARD PASTILLA ACTIVA -->
+        <LinearLayout
+            android:id="@+id/contenedorMedicamentos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

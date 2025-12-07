@@ -1,0 +1,130 @@
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardPastillaActiva"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="16dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="4dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Nombre medicina -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/imgPastillaActiva"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/pill_tratamientos_pacientes"
+                android:layout_marginEnd="16dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtNombrePastilla"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@android:color/black"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtEstadoPastilla"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:background="@drawable/rounded_shadow_blue"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Horarios -->
+        <TextView
+            android:id="@+id/txtHorariosTitulo"
+            android:layout_width="200dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="15dp"
+            android:text="Descripción Asignada"
+            android:layout_marginStart="3dp"/>
+
+        <LinearLayout
+            android:id="@+id/containerHorarios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="12dp">
+
+            <TextView
+                android:id="@+id/txtHorario1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@android:color/black"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="@drawable/rounded_button_gray"
+                android:layout_marginEnd="12dp"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <!-- Duración -->
+        <TextView
+            android:id="@+id/txtDuracionTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hora"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="3dp"/>
+
+        <TextView
+            android:id="@+id/txtDuracion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="3dp"/>
+        <!-- Botón debajo de la hora -->
+
+        <Button
+            android:id="@+id/btnAccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tomado"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="#000000"
+            android:textColor="@android:color/white"/>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

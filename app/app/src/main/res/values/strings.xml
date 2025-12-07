@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">app</string>
+    <string name="remiLoginDescription">El compañero que hace tu tratamiento más fácil</string>
+    <string name="remiName">Remi</string>
+    <string name="app_name">Remi</string>
+
+    --Menu
+    <string name="menuNotificaciones">Notificaciones</string>
+    <string name="menuPacientes">Pacientes</string>
+    <string name="menuHome">Home</string>
+    <string name="menuTratamientos">Tratamientos</string>
 </resources>
