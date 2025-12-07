@@ -39,7 +39,7 @@ class Login : AppCompatActivity() {
 
         Log.d("LOGIN_ACTIVITY", "Total de usuarios cargados para el login: ${userList.size}")
         if (userList.isNotEmpty()) {
-            Toast.makeText(this, "Base de datos cargada con ${userList.size} usuarios de prueba.", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Bienvenido a Remi!", Toast.LENGTH_SHORT).show()
         }
 
         btnLogin.setOnClickListener {
@@ -57,12 +57,12 @@ class Login : AppCompatActivity() {
             }
 
             if (usuario == null) {
-                Toast.makeText(this, "com.android.app.models.Usuario no encontrado", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Usuario o Contraseña incorrectos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             if (usuario.contrasena != contra) {
-                Toast.makeText(this, "La contraseña es incorrecta", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Usuario o Contraseña incorrectos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
