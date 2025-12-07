@@ -15,21 +15,18 @@
             android:name=".TestingCalendarNavBarPacientesRodrigo"
             android:exported="false"
             tools:ignore="Instantiatable" />
-        <activity android:name=".PacientesMedicosActivityInicio"
+        <activity
+            android:name=".PacientesMedicosActivityInicio"
             android:exported="true">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
         </activity>
         <activity
             android:name=".notificaciones_medico"
             android:exported="false" />
         <activity
             android:name=".tratamientos_medico"
+            android:exported="false" />
+        <activity
+            android:name=".NotificacionesMedicamento"
             android:exported="false" />
         <activity
             android:name=".home_medico"
@@ -43,14 +40,12 @@
         <activity
             android:name=".Login"
             android:exported="true" >
-
-            <!--
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            -->
+
         </activity>
         <activity
             android:name=".MainActivity"

@@ -65,7 +65,7 @@ class Login : AppCompatActivity() {
 
             Toast.makeText(this, "Inicio de sesión correcto. ¡Bienvenido ${usuario.nombre}!", Toast.LENGTH_SHORT).show()
 
-            val intent = Intent(this, activity_home_pacientes::class.java)
+            val intent = Intent(this, NotificacionesMedicamento::class.java)
             intent.putExtra("id_usuario", usuario.id)
             startActivity(intent)
 

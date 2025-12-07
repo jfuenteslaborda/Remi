@@ -30,7 +30,7 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         const val TABLE_MEDICAMENTO = "medicamento"
         const val MEDICAMENTO_ID = "id_medicamento"
         const val MEDICAMENTO_NOMBRE = "nombre"
-        const val MEDICAMENTO_DOSIS = "dosis"
+        const val MEDICAMENTO_DESCRIPCION = "descripcion"
         const val MEDICAMENTO_HORA = "hora"
         const val MEDICAMENTO_TOMADO = "tomado" // 0 o 1
         const val MEDICAMENTO_ID_USUARIO = "id_usuario" // CLAVE FORÁNEA
@@ -47,13 +47,13 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
 
         private val MEDICAMENTOS_DE_PRUEBA = listOf(
             // Asignados al Usuario 1 (rbernal)
-            mapOf(MEDICAMENTO_NOMBRE to "Ibuprofeno", MEDICAMENTO_DOSIS to "500 mg", MEDICAMENTO_HORA to "08:00", MEDICAMENTO_TOMADO to 0, MEDICAMENTO_ID_USUARIO to 1),
-            mapOf(MEDICAMENTO_NOMBRE to "Aspirina", MEDICAMENTO_DOSIS to "100 mg", MEDICAMENTO_HORA to "12:00", MEDICAMENTO_TOMADO to 0, MEDICAMENTO_ID_USUARIO to 1),
+            mapOf(MEDICAMENTO_NOMBRE to "Ibuprofeno 500mg", MEDICAMENTO_DESCRIPCION to "Tomar diluido con agua", MEDICAMENTO_HORA to "08:00", MEDICAMENTO_TOMADO to 0, MEDICAMENTO_ID_USUARIO to 1),
+            mapOf(MEDICAMENTO_NOMBRE to "Aspirina 100mg", MEDICAMENTO_DESCRIPCION to "Tomar con cuidado", MEDICAMENTO_HORA to "12:00", MEDICAMENTO_TOMADO to 0, MEDICAMENTO_ID_USUARIO to 1),
             // Asignados al Usuario 2 (jfuentes)
-            mapOf(MEDICAMENTO_NOMBRE to "Paracetamol", MEDICAMENTO_DOSIS to "1000 mg", MEDICAMENTO_HORA to "16:00", MEDICAMENTO_TOMADO to 1, MEDICAMENTO_ID_USUARIO to 2),
-            mapOf(MEDICAMENTO_NOMBRE to "Vitaminas", MEDICAMENTO_DOSIS to "1 comp.", MEDICAMENTO_HORA to "20:00", MEDICAMENTO_TOMADO to 0, MEDICAMENTO_ID_USUARIO to 2),
+            mapOf(MEDICAMENTO_NOMBRE to "Paracetamol 300mg", MEDICAMENTO_DESCRIPCION to "Tomar diluido con agua" ,MEDICAMENTO_HORA to "16:00", MEDICAMENTO_TOMADO to 1, MEDICAMENTO_ID_USUARIO to 2),
+            mapOf(MEDICAMENTO_NOMBRE to "Vitaminas C", MEDICAMENTO_DESCRIPCION to "Recomendable machacar", MEDICAMENTO_HORA to "20:00", MEDICAMENTO_TOMADO to 0, MEDICAMENTO_ID_USUARIO to 2),
             // Asignados al Usuario 3 (rromero)
-            mapOf(MEDICAMENTO_NOMBRE to "Antibiotico", MEDICAMENTO_DOSIS to "250 mg", MEDICAMENTO_HORA to "10:00", MEDICAMENTO_TOMADO to 1, MEDICAMENTO_ID_USUARIO to 3)
+            mapOf(MEDICAMENTO_NOMBRE to "Antibiotico", MEDICAMENTO_DESCRIPCION to "Tomar diluido con agua", MEDICAMENTO_HORA to "10:00", MEDICAMENTO_TOMADO to 1, MEDICAMENTO_ID_USUARIO to 3)
         )
     }
 
@@ -71,8 +71,8 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         "CREATE TABLE $TABLE_MEDICAMENTO (" +
                 "$MEDICAMENTO_ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "$MEDICAMENTO_NOMBRE TEXT NOT NULL," +
-                "$MEDICAMENTO_DOSIS TEXT," +
                 "$MEDICAMENTO_HORA TEXT," +
+                "$MEDICAMENTO_DESCRIPCION TEXT," +
                 "$MEDICAMENTO_TOMADO INTEGER," +
                 "$MEDICAMENTO_ID_USUARIO INTEGER)" // Columna de clave foránea
 
@@ -140,8 +140,8 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         for (medicamentoData in MEDICAMENTOS_DE_PRUEBA) {
             val values = ContentValues().apply {
                 put(MEDICAMENTO_NOMBRE, medicamentoData[MEDICAMENTO_NOMBRE] as String)
-                put(MEDICAMENTO_DOSIS, medicamentoData[MEDICAMENTO_DOSIS] as String)
                 put(MEDICAMENTO_HORA, medicamentoData[MEDICAMENTO_HORA] as String)
+                put(MEDICAMENTO_DESCRIPCION, medicamentoData[MEDICAMENTO_DESCRIPCION] as String)
                 put(MEDICAMENTO_TOMADO, medicamentoData[MEDICAMENTO_TOMADO] as Int)
                 put(MEDICAMENTO_ID_USUARIO, medicamentoData[MEDICAMENTO_ID_USUARIO] as Int)
             }
@@ -197,12 +197,12 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
             while (moveToNext()) {
                 val id = getInt(getColumnIndexOrThrow(MEDICAMENTO_ID))
                 val nombre = getString(getColumnIndexOrThrow(MEDICAMENTO_NOMBRE))
-                val dosis = getString(getColumnIndexOrThrow(MEDICAMENTO_DOSIS))
                 val hora = getString(getColumnIndexOrThrow(MEDICAMENTO_HORA))
+                val descripcion = getString(getColumnIndexOrThrow(MEDICAMENTO_DESCRIPCION))
                 // Convierte el INTEGER (0 o 1) a Boolean
                 val tomado = getInt(getColumnIndexOrThrow(MEDICAMENTO_TOMADO)) == 1
 
-                medicamentoList.add(Medicamento(id, nombre, dosis, hora, tomado, userId))
+                medicamentoList.add(Medicamento(id, nombre, hora, descripcion, tomado, userId))
             }
         }
         cursor.close()
