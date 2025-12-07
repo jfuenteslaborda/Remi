@@ -9,8 +9,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.android.app.DB.SQLiteDBManager
 import com.google.android.material.textfield.TextInputEditText
 import com.android.app.models.Usuario
+import com.android.app.views.NotificacionesMedicamento
+import com.android.app.views.VistaMedico
 
 class Login : AppCompatActivity() {
 

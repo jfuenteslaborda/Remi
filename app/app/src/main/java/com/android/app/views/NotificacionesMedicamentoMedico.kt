@@ -1,16 +1,22 @@
-package com.android.app
+package com.android.app.views
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.android.app.DB.SQLiteDBManager
+import com.android.app.R
 import com.android.app.models.Medicamento
 
-class NotificacionesMedicamento : AppCompatActivity() {
+class NotificacionesMedicamentoMedico : AppCompatActivity() {
 
     private var medicamentosList = mutableListOf<Medicamento>() // mutable para agregar
     private lateinit var contenedor: LinearLayout
@@ -21,9 +27,9 @@ class NotificacionesMedicamento : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_tratamientos_pacientes)
+        setContentView(R.layout.activity_tratamientos_medico_view)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.activity_tratamientos_pacientes)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.activity_tratamientos_medico_view)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
@@ -32,15 +38,17 @@ class NotificacionesMedicamento : AppCompatActivity() {
         idUsuario = intent.getIntExtra("id_usuario", -1)
         dbManager = SQLiteDBManager(this)
         medicamentosList = dbManager.obtenerMedicamentosPorUsuario(idUsuario).toMutableList()
+        val btnNuevoMedicamento = findViewById<Button>(R.id.nuevoMedicamentoM)
 
-        contenedor = findViewById(R.id.contenedorMedicamentos)
+        contenedor = findViewById(R.id.contenedorMedicamentosM)
         inflater = LayoutInflater.from(this)
+        val usuario = dbManager.obtenerUsuarioPorId(idUsuario)
 
         // Mostrar los medicamentos actuales
         mostrarMedicamentos()
 
         // Botón para agregar nuevo medicamento
-        val btnNuevoMedicamento = findViewById<Button>(R.id.nuevoMedicamento)
+
         btnNuevoMedicamento.setOnClickListener {
             mostrarDialogNuevoMedicamento()
         }
@@ -62,12 +70,16 @@ class NotificacionesMedicamento : AppCompatActivity() {
             txtHorario1.text = m.descripcion
             estadoTextView.text = if (m.tomado) "Tomado" else "No tomado"
 
+
             boton.setOnClickListener {
                 if (estadoTextView.text.toString() == "Tomado") {
                     Toast.makeText(this, "Ya está marcado como tomado", Toast.LENGTH_SHORT).show()
                 } else {
                     estadoTextView.text = "Tomado"
                     m.tomado = true
+
+                    // Guardar en la base de datos
+                    dbManager.marcarMedicamentoTomado(m.id)
                 }
             }
 

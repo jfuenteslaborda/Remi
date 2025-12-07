@@ -1,4 +1,4 @@
-package com.android.app
+package com.android.app.DB
 
 import android.content.ContentValues
 import android.content.Context
@@ -181,7 +181,17 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 val contrasena = it.getString(it.getColumnIndexOrThrow(COLUMN_CONTRASENA))
                 val fechaCreacion = it.getString(it.getColumnIndexOrThrow(COLUMN_FECHA_CREACION))
                 val idMedico = it.getInt(it.getColumnIndexOrThrow(COLUMN_ID_MEDICO))
-                userList.add(Usuario(id, nombre, email, descripcion, contrasena, fechaCreacion, idMedico))
+                userList.add(
+                    Usuario(
+                        id,
+                        nombre,
+                        email,
+                        descripcion,
+                        contrasena,
+                        fechaCreacion,
+                        idMedico
+                    )
+                )
             }
         }
         return userList
@@ -201,11 +211,54 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
                 val contrasena = it.getString(it.getColumnIndexOrThrow(COLUMN_CONTRASENA))
                 val fechaCreacion = it.getString(it.getColumnIndexOrThrow(COLUMN_FECHA_CREACION))
                 val idMedico = it.getInt(it.getColumnIndexOrThrow(COLUMN_ID_MEDICO))
-                userList.add(Usuario(id, nombre, email, descripcion, contrasena, fechaCreacion, idMedico))
+                userList.add(
+                    Usuario(
+                        id,
+                        nombre,
+                        email,
+                        descripcion,
+                        contrasena,
+                        fechaCreacion,
+                        idMedico
+                    )
+                )
             }
         }
         return userList
     }
+
+    fun obtenerUsuarioPorId(id: Int): Usuario? {
+        val db = readableDatabase
+        val query = "SELECT * FROM $TABLE_USUARIO WHERE $COLUMN_ID = ?"
+        val cursor = db.rawQuery(query, arrayOf(id.toString()))
+
+        var user: Usuario? = null
+
+        cursor.use {
+            if (it.moveToFirst()) {
+                val idUsuario = it.getInt(it.getColumnIndexOrThrow(COLUMN_ID))
+                val nombre = it.getString(it.getColumnIndexOrThrow(COLUMN_NOMBRE))
+                val email = it.getString(it.getColumnIndexOrThrow(COLUMN_EMAIL))
+                val descripcion = it.getString(it.getColumnIndexOrThrow(COLUMN_DESCRIPCION))
+                val contrasena = it.getString(it.getColumnIndexOrThrow(COLUMN_CONTRASENA))
+                val fechaCreacion = it.getString(it.getColumnIndexOrThrow(COLUMN_FECHA_CREACION))
+                val idMedico = it.getInt(it.getColumnIndexOrThrow(COLUMN_ID_MEDICO))
+
+                user = Usuario(
+                    idUsuario,
+                    nombre,
+                    email,
+                    descripcion,
+                    contrasena,
+                    fechaCreacion,
+                    idMedico
+                )
+            }
+        }
+
+        return user
+    }
+
 
     fun obtenerMedicamentosPorUsuario(userId: Int): List<Medicamento> {
         val medicamentoList = mutableListOf<Medicamento>()
@@ -237,4 +290,19 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         }
         return db.insert(TABLE_MEDICAMENTO, null, values)
     }
+
+    // --- ACTUALIZAR MEDICAMENTO ---
+    fun marcarMedicamentoTomado(idMedicamento: Int) {
+        val db = writableDatabase
+        val values = ContentValues().apply {
+            put(MEDICAMENTO_TOMADO, 1) // 1 = true
+        }
+        db.update(
+            TABLE_MEDICAMENTO,
+            values,
+            "$MEDICAMENTO_ID = ?",
+            arrayOf(idMedicamento.toString())
+        )
+    }
+
 }
