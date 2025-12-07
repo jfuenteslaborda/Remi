@@ -15,7 +15,7 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         const val DATABASE_VERSION = 4 // Incrementa si cambias la estructura
         const val DATABASE_NAME = "MyAppData.db"
 
-        // --- TABLA USUARIO ---
+        // USUARIO
         const val TABLE_USUARIO = "usuario"
         const val COLUMN_ID = "id"
         const val COLUMN_NOMBRE = "nombre"
@@ -25,7 +25,7 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         const val COLUMN_FECHA_CREACION = "fecha_creacion"
         const val COLUMN_ID_MEDICO = "id_medico"
 
-        // --- TABLA MEDICAMENTO ---
+        // MEDICAMENTO
         const val TABLE_MEDICAMENTO = "medicamento"
         const val MEDICAMENTO_ID = "id_medicamento"
         const val MEDICAMENTO_NOMBRE = "nombre"
@@ -97,7 +97,6 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         )
     }
 
-    // --- SQL CREATION ---
     private val SQL_CREATE_USUARIO =
         """
         CREATE TABLE $TABLE_USUARIO (
@@ -167,7 +166,6 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         }
     }
 
-    // --- CONSULTAS ---
     fun obtenerTodosLosUsuarios(): List<Usuario> {
         val userList = mutableListOf<Usuario>()
         val db = readableDatabase
@@ -291,7 +289,7 @@ class SQLiteDBManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         return db.insert(TABLE_MEDICAMENTO, null, values)
     }
 
-    // --- ACTUALIZAR MEDICAMENTO ---
+
     fun marcarMedicamentoTomado(idMedicamento: Int) {
         val db = writableDatabase
         val values = ContentValues().apply {

@@ -36,18 +36,16 @@ class NotificacionesMedicamento : AppCompatActivity() {
         idUsuario = intent.getIntExtra("id_usuario", -1)
         dbManager = SQLiteDBManager(this)
 
-        // Cargar medicamentos desde la base de datos
         medicamentosList = dbManager.obtenerMedicamentosPorUsuario(idUsuario).toMutableList()
 
         contenedor = findViewById(R.id.contenedorMedicamentos)
         inflater = LayoutInflater.from(this)
 
-        // Mostrar los medicamentos
         mostrarMedicamentos()
     }
 
     private fun mostrarMedicamentos() {
-        contenedor.removeAllViews() // Limpiar antes de agregar
+        contenedor.removeAllViews()
 
         medicamentosList.forEach { m ->
             val itemView = inflater.inflate(R.layout.item_medicamento, contenedor, false)

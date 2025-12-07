@@ -44,10 +44,8 @@ class NotificacionesMedicamentoMedico : AppCompatActivity() {
         inflater = LayoutInflater.from(this)
         val usuario = dbManager.obtenerUsuarioPorId(idUsuario)
 
-        // Mostrar los medicamentos actuales
         mostrarMedicamentos()
 
-        // Botón para agregar nuevo medicamento
 
         btnNuevoMedicamento.setOnClickListener {
             mostrarDialogNuevoMedicamento()
@@ -55,7 +53,7 @@ class NotificacionesMedicamentoMedico : AppCompatActivity() {
     }
 
     private fun mostrarMedicamentos() {
-        contenedor.removeAllViews() // Limpiar antes de agregar
+        contenedor.removeAllViews()
         medicamentosList.forEach { m ->
             val itemView = inflater.inflate(R.layout.item_medicamento, contenedor, false)
 
@@ -78,7 +76,6 @@ class NotificacionesMedicamentoMedico : AppCompatActivity() {
                     estadoTextView.text = "Tomado"
                     m.tomado = true
 
-                    // Guardar en la base de datos
                     dbManager.marcarMedicamentoTomado(m.id)
                 }
             }
@@ -121,7 +118,6 @@ class NotificacionesMedicamentoMedico : AppCompatActivity() {
                         idUsuario = idUsuario
                     )
 
-                    // Guardar en BD
                     val newRowId = dbManager.insertarMedicamento(nuevoMedicamento)
                     if (newRowId != -1L) {
                         nuevoMedicamento.id = newRowId.toInt()
