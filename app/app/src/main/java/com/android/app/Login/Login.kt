@@ -3,6 +3,7 @@ package com.android.app
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.net.Uri
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -33,6 +34,7 @@ class Login : AppCompatActivity() {
         val inputNombre = findViewById<TextInputEditText>(R.id.email)
         val inputContra = findViewById<TextInputEditText>(R.id.password)
         val btnLogin = findViewById<Button>(R.id.log_in)
+        val btnSolicitar = findViewById<Button>(R.id.solicitar)
 
         val dbManager = SQLiteDBManager(this)
         userList = dbManager.obtenerTodosLosUsuarios()
@@ -77,9 +79,17 @@ class Login : AppCompatActivity() {
                 intent.putExtra("id_usuario", usuario.id)
                 startActivity(intent)
             }
-
-
             finish()
+        }
+
+        btnSolicitar.setOnClickListener {
+            val numero = "+34633311142"
+            val intent = Intent(Intent.ACTION_DIAL).apply {
+                data = Uri.parse("tel:$numero")
+            }
+            Toast.makeText(this, "Solicitar cuenta al administrador", Toast.LENGTH_SHORT).show()
+            startActivity(intent)
+
         }
     }
 }
